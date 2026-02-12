@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Layout</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            width: 600px;
+            height: 40px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<table width="90%" align="center">
+    <!-- First Row -->
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+
+    <!-- Second Row -->
+    <tr>
+        <td>5</td>
+        <td rowspan="2" colspan="2">
+            <img src="image.jpg" alt="Sample Image">
+        </td>
+        <td>6</td>
+    </tr>
+
+    <!-- Third Row -->
+    <tr>
+        <td>7</td>
+        <td>8</td>
+    </tr>
+
+    <!-- Fourth Row -->
+    <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -2,25 +2,6 @@ from Ques1 import Ques1
 from Ques2 import Ques2
 from Ques3 import Ques3
 from Ques4 import Ques4
-import http.server
-import socketserver
-import threading
-import webbrowser
-import os
-
-def start_server(port=8000):
-    # Serve the current directory (no chdir)
-    handler = http.server.SimpleHTTPRequestHandler
-    httpd = socketserver.TCPServer(("", port), handler)
-    print(f"Serving HTML files at http://localhost:{port}")
-    httpd.serve_forever()
-
-# Start server in background
-server_thread = threading.Thread(target=start_server, daemon=True)
-server_thread.start()
-
-# ...rest of your menu code stays the same...
-
 
 choice = 1
 while choice != 0:
@@ -30,8 +11,6 @@ while choice != 0:
     print("2. Ques 2: ")
     print("3. Ques 3: ")
     print("4. Ques 4: ")
-    print("5. Ques 5: ")
-    print("6. Ques 6: ")
     print("0. Exit")
     
     try:
@@ -58,11 +37,6 @@ while choice != 0:
         text = input("Enter a string: ")
         obj = Ques4(text)
         print(obj.count_vowels())
-    elif choice == 5:
-        # Open Ques5.html in the online preview
-        url = "http://localhost:8000/Ques5.html"
-        print(f"Opening Ques5.html in browser at {url}")
-        webbrowser.open(url)
     elif choice == 0:
         print("Exiting...")
     else:
