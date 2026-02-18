@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Name</title>
+
+    <script>
+        function openWelcomePage() {
+            var name = document.getElementById("name").value;
+            window.location.href = "welcome.html?username=" + name;
+        }
+
+        function resetName() {
+            document.getElementById("name").value = "Sohaib";
+        }
+    </script>
+
+</head>
+<body>
+
+<h2>Enter Your Name</h2>
+
+<label>Name:</label>
+<input type="text" id="name" value="CSD">
+
+<br><br>
+
+<button onclick="openWelcomePage()">Enter</button>
+<button onclick="resetName()">Reset</button>
+
+</body>
+</html>
