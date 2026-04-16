@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplication Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #050607;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 15px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #aab2b9;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .container {
+            background: rgb(95, 8, 8);
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Mutiplication Table</h1>
+
+        <input type="number" id="num" placeholder="Enter a Number" onkeydown="handleKey(event)">
+        <button onclick="generateTable()">Generate Table</button>
+
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+        function generateTable() {
+            let num = document.getElementById("num").value;
+            if (num === "") {
+                alert("Please enter a number");
+                return;
+            }
+
+            if (isNaN(num)) {
+                alert("Please enter a valid number");
+                return;
+            }
+            document.getElementById("result").innerHTML = "";
+            for (let x = 1; x < 11; x++) {
+                let line = num + " x " + x + " = " + num * x;
+                document.getElementById("result").innerHTML += line + "<br>";
+            }
+        }
+
+        function handleKey(event){
+            if(event.key === "Enter"){
+                generateTable();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
