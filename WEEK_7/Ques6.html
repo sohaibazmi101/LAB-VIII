@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Find Day Using Number</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b539b;
+            text-align: center;
+            color: #fff;
+            margin-top: 50px;
+        }
+        h2
+        {
+            color: #f8f8f8;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 15px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #aab2b9;
+        }
+
+        #result {
+    font-size: 22px;
+    margin-top: 20px;
+    color: #ffffff;
+    transition: all 0.5s ease, color 0.3s ease;
+}
+
+#result.show {
+    animation: fadeIn 0.5s ease;
+    color: #4CAF50;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <h2>Find Day of the week</h2>
+
+    <input type="number" id="day" placeholder="Enter Date (1 - 31)">
+    <button onclick="findDay()">Find Day</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function findDay() {
+            let value = document.getElementById("day").value;
+            let day = Number(value);
+            if (day < 1 || day > 31 || isNaN(day)) {
+                document.getElementById("result").textContent = "Invalid input!";
+                return;
+            }
+            let date = new Date(2026, 3, day);
+
+            let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            let dayName = days[date.getDay()];
+            document.getElementById("result").textContent = "Day is: " + dayName;
+        }
+    </script>
+
+</body>
+
+</html>
