@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC.COM - Page 2</title>
+</head>
+<body>
+
+<h2>Welcome to ABC.COM</h2>
+
+<p>
+  ABC.COM is a modern platform where you can explore amazing features,
+  connect with services, and enjoy a seamless experience.
+</p>
+
+<form action="page3.html" method="GET">
+
+  <input type="hidden" name="username" id="hiddenName">
+
+  <button type="submit">Next</button>
+</form>
+
+<script>
+  // Get name from URL
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("username");
+
+  document.getElementById("hiddenName").value = name;
+</script>
+
+</body>
+</html>

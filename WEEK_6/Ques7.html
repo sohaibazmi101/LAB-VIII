@@ -1,0 +1,14 @@
+<script>
+  const showGreeting = confirm("Do you want to see a greeting message?");
+
+  if (showGreeting) {
+    const img = document.createElement("img");
+    img.src = "Welcome.gif";
+
+    const text = document.createElement("h2");
+    text.textContent = "Welcome to Department of Computer Science!";
+
+    document.body.appendChild(img);
+    document.body.appendChild(text);
+  }
+</script>
