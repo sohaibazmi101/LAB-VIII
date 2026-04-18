@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>
+        Frame Using CSS
+    </title>
+    <style>
+        body {
+            background: #101c71;
+            height: 100vh;
+        }
+
+        a {
+            text-decoration: underline;
+            color: #fff;
+            padding: 20px;
+            padding-top: 20px;
+            font-size: 29px;
+        }
+
+        h2 {
+            font-size: 48px;
+            color: rgb(205, 205, 114);
+        }
+
+        h3 {
+            font-size: 32px;
+            color: rgb(212, 212, 173);
+            font-display: block;
+            text-shadow: #101c71;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left {
+            width: 25%;
+            background: #3c3a86;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right {
+            width: 75%;
+            padding: 20px;
+        }
+
+        .innerCLass {
+            margin: 8px;
+            padding: 8px;
+            display: flex;
+            font-size: 18px;
+            color: #fff;
+            background: #3c3a86;
+            border-radius: 23px;
+            width: 600px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .innerCLass input {
+            padding: 8px;
+            border-radius: 8px;
+            background: #101c71;
+            color: #fff;
+            border: none;
+            margin: 8px;
+        }
+
+        .innerCLass label {
+            padding: 8px;
+            margin: 8px;
+        }
+
+        .innerCLass button {
+            padding: 8px;
+            margin: 18px;
+            width: 150px;
+            background: #3f0707;
+            border: none;
+            color: #fff;
+            font-size: 23px;
+            font-weight: bold;
+            border-radius: 12px;
+        }
+
+        .resultarea {
+            background: #1d2595;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            width: auto;
+            border-radius: 18px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .resultarea p {
+            font-weight: bold;
+            font-style: oblique;
+            color: antiquewhite;
+            width: 300PX;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <h3>Forms</h3>
+            <a href="#" onclick="showForm1()">Form 1</a>
+            <a href="#" onclick="showForm2()">Form 2</a>
+        </div>
+        <div class="right">
+            <h2>Form Area</h2>
+            <div id="formArea"></div>
+            <h3 id="formResult"></h3>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script>
+        function showForm1() {
+            document.getElementById("formArea").innerHTML = `
+                <h3>Form 1</h3>
+                <form onsubmit="handleForm1(event)">
+                    <div class="innerCLass">
+                        <label>Name: </label>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Age: </label>
+                        <input type="number" id="age">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Class: </label>
+                        <input type="text" id="college">
+                    </div>
+                    <div class="innerCLass">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+
+                `;
+        }
+        function handleForm1(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const classes = document.getElementById("college").value;
+            document.getElementById("formResult").textContent = "Form Result";
+
+            document.getElementById("result").innerHTML = `
+                <div class="resultarea">
+                    <p id="setname"></p>
+                    <p id="setage"></p>
+                    <p id="setclass"></p>
+                </div>
+            `;
+
+            document.getElementById("setname").textContent = "Name: "+name;
+            document.getElementById("setage").textContent = "Age: "+ age;
+            document.getElementById("setclass").textContent = "Class: " + classes;
+        }
+
+        function showForm2(){
+            document.getElementById("formArea").innerHTML = `
+                <h3>Form 2</h3>
+                <form onsubmit="handleForm2(event)">
+                    <div class="innerCLass">
+                        <label>Enrollment Number: </label>
+                        <input type="text" id="en-number">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Faculty Number: </label>
+                        <input type="text" id="fnumber">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Department: </label>
+                        <input type="text" id="department">
+                    </div>
+                    <div class="innerCLass">
+                        <label>University: </label>
+                        <input type="text" id="university">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Current Semester</label>
+                        <input type="text" id="semester">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Number of Subhects: </label>
+                        <input type="number" id="subject">
+                    </div>
+                    <div class="innerCLass">
+                        <label>Total Credits: </label>
+                        <input type="number" id="credits">
+                    </div>
+                    <div class="innerCLass">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+
+                `;
+        }
+
+        function handleForm2(event) {
+            event.preventDefault();
+            const en = document.getElementById("en-number").value;
+            const fnumber = document.getElementById("fnumber").value;
+            const department = document.getElementById("department").value;
+            const university = document.getElementById("university").value;
+            const semester = document.getElementById("semester").value;
+            const subject = document.getElementById("subject").value;
+            const credits = document.getElementById("credits").value;
+            document.getElementById("formResult").textContent = "Form Result";
+
+            document.getElementById("result").innerHTML = `
+                <div class="resultarea">
+                    <p id="seten"></p>
+                    <p id="setfnumber"></p>
+                    <p id="setdepartment"></p>
+                    <p id="setuniversity"></p>
+                    <p id="setsemester"></p>
+                    <p id="setsubject"></p>
+                    <p id="setcredits"></p>
+                </div>
+            `;
+
+            document.getElementById("seten").textContent = "Enrollment Number: "+en;
+            document.getElementById("setfnumber").textContent = "Faculty Number: "+ fnumber;
+            document.getElementById("setdepartment").textContent = "Department: " + department;
+            document.getElementById("setuniversity").textContent = "University: " + university;
+            document.getElementById("setsemester").textContent = "Semester: " + semester;
+            document.getElementById("setsubject").textContent = "Number of Subjects: " + subject;
+            document.getElementById("setcredits").textContent = "Total Credits: " + credits;
+        }
+    </script>
+</body>
+
+</html>

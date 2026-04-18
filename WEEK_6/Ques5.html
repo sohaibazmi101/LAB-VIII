@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compose Email</title>
+  <style>
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Compose Email</h2>
+
+  <input type="email" id="to" placeholder="To (recipient email)">
+  <input type="email" id="cc" placeholder="CC (optional)">
+  <textarea id="message" placeholder="Write your message..."></textarea>
+
+  <div class="error" id="error"></div>
+
+  <button onclick="sendEmail()">Send</button>
+</div>
+
+<script>
+  function sendEmail() {
+    const to = document.getElementById("to").value.trim();
+    const cc = document.getElementById("cc").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const errorDiv = document.getElementById("error");
+
+    errorDiv.textContent = "";
+
+    // Basic validation
+    if (!to || !message) {
+      errorDiv.textContent = "Please fill required fields (To & Message)";
+      return;
+    }
+
+    // Simple email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(to)) {
+      errorDiv.textContent = "Invalid recipient email!";
+      return;
+    }
+
+    if (cc && !emailRegex.test(cc)) {
+      errorDiv.textContent = "Invalid CC email!";
+      return;
+    }
+
+    // Simulate sending email
+    alert(`Email Sent!\n\nTo: ${to}\nCC: ${cc}\nMessage: ${message}`);
+
+    // Clear form
+    document.getElementById("to").value = "";
+    document.getElementById("cc").value = "";
+    document.getElementById("message").value = "";
+  }
+</script>
+
+</body>
+</html>
